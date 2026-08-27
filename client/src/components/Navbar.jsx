@@ -18,10 +18,8 @@ const Navbar = () => {
         if (pathname === '/') {
             document.getElementById('events')?.scrollIntoView({ behavior: "smooth" })
         } else {
-            navigate("/");
-            setTimeout(() => {
-                document.getElementById('events')?.scrollIntoView({ behavior: "smooth" })
-            }, 100)
+            // The hash lets Home scroll after its content has mounted.
+            navigate('/#events');
         }
     }
 

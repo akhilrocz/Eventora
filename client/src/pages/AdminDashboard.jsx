@@ -85,21 +85,21 @@ const AdminDashboard = () => {
 
     return (
         <div className="max-w-7xl mx-auto">
-            <div className="bg-black text-white rounded-2xl p-6 sm:p-8 mb-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+            <div className="bg-black m-10 text-white rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
                 <div>
                     <h1 className="text-2xl sm:text-3xl font-extrabold mb-2">Admin Dashboard</h1>
                     <p className="text-gray-300">Manage events and manually confirm bookings.</p>
                 </div>
                 <button
                     onClick={() => setShowEventForm(!showEventForm)}
-                    className="w-full md:w-auto bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition shadow-md"
+                    className="w-full cursor-pointer md:w-auto bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition shadow-md"
                 >
                     {showEventForm ? 'Cancel Creation' : '+ Create New Event'}
                 </button>
             </div>
 
             {/* Admin Stats Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 m-10">
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
                     <div>
                         <p className="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1">Total Revenue</p>
@@ -139,12 +139,12 @@ const AdminDashboard = () => {
                         </div>
 
                         <textarea required placeholder="Event Description" className="border px-4 py-3 rounded-lg md:col-span-2 h-32 focus:ring-2 focus:ring-gray-700 outline-none transition" value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} />
-                        <button type="submit" className="md:col-span-2 bg-gray-900 text-white font-bold py-3 mt-2 rounded-lg hover:bg-black transition shadow-md">Publish Event</button>
+                        <button type="submit" className="md:col-span-2 cursor-pointer bg-gray-900 text-white font-bold py-3 mt-2 rounded-lg hover:bg-black transition shadow-md">Publish Event</button>
                     </form>
                 </div>
             )}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ml-10 mr-10">
                 {/* Events Section */}
                 <div className="flex flex-col">
                     <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-3">
@@ -152,7 +152,7 @@ const AdminDashboard = () => {
                         All Events
                     </h2>
                     <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                        <ul className="divide-y divide-gray-100 max-h-[600px] overflow-y-auto">
+                        <ul className="divide-y divide-gray-100 max-h-150 overflow-y-auto">
                             {events.length === 0 ? <li className="p-6 text-gray-500 text-center">No events created yet.</li> :
                                 events.map(event => (
                                     <li key={event._id} className="p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-gray-50 transition border-b border-gray-100 last:border-0">
@@ -180,7 +180,7 @@ const AdminDashboard = () => {
                         Booking Requests
                     </h2>
                     <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                        <ul className="divide-y divide-gray-100 max-h-[600px] overflow-y-auto">
+                        <ul className="divide-y divide-gray-100 max-h-150 overflow-y-auto">
                             {bookings.length === 0 ? <li className="p-6 text-gray-500 text-center">No bookings yet.</li> :
                                 bookings.map(booking => (
                                     <li key={booking._id} className={`p-6 hover:bg-gray-50 transition border-l-4 ${booking.status === 'pending' ? 'border-l-yellow-400' : booking.status === 'confirmed' ? 'border-l-green-400' : 'border-l-red-400'}`}>

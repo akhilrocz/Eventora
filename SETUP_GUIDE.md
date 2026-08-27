@@ -63,7 +63,7 @@ JWT_SECRET=supersecretjwtkey_eventora
 EMAIL_USER=yourgmail@gmail.com
 EMAIL_PASS=the_16_character_app_password
 
-PORT=5000
+PORT=8000
 ```
 
 ---
@@ -77,7 +77,7 @@ cd server
 npm run dev
 ```
 If you configured your `MONGO_URI` correctly, the terminal will say:
-> `Server running on port 5000`
+> `Server running on port 8000`
 > `MongoDB Connected`
 
 

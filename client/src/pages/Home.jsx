@@ -269,7 +269,7 @@ const Home = () => {
                 </div>
 
                 {/* Section header */}
-                <div className="flex items-end justify-between mb-8 pb-4 border-b-2 border-dashed border-[#241E22]/15">
+                <div id="events" className="flex items-end justify-between mb-8 pb-4 border-b-2 border-dashed border-[#241E22]/15">
                     <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-[#241E22]">
                         Upcoming Events
                     </h2>

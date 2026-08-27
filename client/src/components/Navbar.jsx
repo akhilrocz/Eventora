@@ -20,7 +20,7 @@ const Navbar = () => {
                         <FaTicketAlt /> Eventora
                     </Link>
                     <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-                        <Link to="/" className="text-gray-200 hover:text-white transition cursor-pointer">Events</Link>
+                        <button onClick={()=>document.getElementById("events")?.scrollIntoView({behavior:"smooth"})} className="text-gray-200 hover:text-white transition cursor-pointer">Events</button>
                         {user ? (
                             <>
                                 <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="text-gray-200 hover:text-white transition">Dashboard</Link>

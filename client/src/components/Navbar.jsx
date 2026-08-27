@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { FaTicketAlt } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+    const { pathname } = useLocation();
     const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -11,6 +13,17 @@ const Navbar = () => {
         logout();
         navigate('/login');
     };
+
+    const handleEventsClick = () => {
+        if (pathname === '/') {
+            document.getElementById('events')?.scrollIntoView({ behavior: "smooth" })
+        } else {
+            navigate("/");
+            setTimeout(() => {
+                document.getElementById('events')?.scrollIntoView({ behavior: "smooth" })
+            }, 100)
+        }
+    }
 
     return (
         <nav className="bg-gray-900 shadow-lg">
@@ -20,7 +33,7 @@ const Navbar = () => {
                         <FaTicketAlt /> Eventora
                     </Link>
                     <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-                        <button onClick={()=>document.getElementById("events")?.scrollIntoView({behavior:"smooth"})} className="text-gray-200 hover:text-white transition cursor-pointer">Events</button>
+                        <button onClick={handleEventsClick} className="text-gray-200 hover:text-white transition cursor-pointer">Events</button>
                         {user ? (
                             <>
                                 <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="text-gray-200 hover:text-white transition">Dashboard</Link>

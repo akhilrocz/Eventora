@@ -15,10 +15,6 @@ const app = express();
 app.use(cors({ credentials:true }));
 app.use(express.json());
 
-app.get("/",(req,res)=>{
-  return res.status(200).json({message:"Eventora API Running succesfully"})
-})
-
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/bookings', bookingRoutes);

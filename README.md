@@ -34,7 +34,7 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=supersecretjwtkey_eventora
 EMAIL_USER=your_gmail_address
 EMAIL_PASS=your_gmail_app_password
-PORT=5000
+PORT=8000
 ```
 > **Note**: For `EMAIL_PASS`, you need to generate an "App Password" from your Google Account settings, standard passwords won't work due to 2FA.
 
@@ -73,7 +73,7 @@ npm install
 cd server
 npm run dev
 ```
-*(Server will run on `http://localhost:5000`)*
+*(Server will run on `http://localhost:8000`)*
 
 **Run Frontend:**
 ```bash

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import api from '../utils/axios';
 import { FaCalendarAlt, FaMapMarkerAlt, FaSearch, FaRegClock, FaTicketAlt, FaShieldAlt } from 'react-icons/fa';
-
 
 const Home = () => {
     const { location } = useLocation();
@@ -11,20 +10,13 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (location !== '#events') return;
+        if (location !== '#events' || loading) return;
         requestAnimationFrame(() => {
             document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' });
         });
-    }, [location]);
+    }, [location,loading]);
 
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            fetchEvents();
-        }, 400); // 400ms debounce
-        return () => clearTimeout(timeoutId);
-    }, [search]);
-
-    const fetchEvents = async () => {
+     const fetchEvents = async () => {
         try {
             const { data } = await api.get(`/events?search=${search}`);
             setEvents(data);
@@ -34,6 +26,14 @@ const Home = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            fetchEvents();
+        }, 400); // 400ms debounce
+        return () => clearTimeout(timeoutId);
+    }, [search]);
+   
 
     return (
         <div className="min-h-screen bg-[#F6F3EE]">

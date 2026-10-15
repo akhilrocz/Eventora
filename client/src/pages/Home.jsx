@@ -125,37 +125,37 @@ const Home = () => {
             {
               icon: <FaRegClock />,
               title: "Fast Booking",
-              copy: "Secure your tickets instantly through a streamlined checkout built for speed.",
+              description: "Secure your tickets instantly through a streamlined checkout built for speed.",
               accent: "#F0A93E",
             },
             {
               icon: <FaTicketAlt />,
               title: "Seamless Access",
-              copy: "Download tickets instantly or manage them anytime from your dashboard.",
+              description: "Download tickets instantly or manage them anytime from your dashboard.",
               accent: "#2F8F76",
             },
             {
               icon: <FaShieldAlt />,
               title: "Secure Platform",
-              copy: "Every transaction is protected with modern encryption and 2FA.",
+              description: "Every transaction is protected with modern encryption and 2FA.",
               accent: "#F0A93E",
             },
-          ].map((f, i) => (
+          ].map((feature) => (
             <div
-              key={i}
+              key={feature.title}
               className="bg-white rounded-2xl border border-[#241E22]/8 p-7 flex flex-col hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#211224]/5 transition-all duration-300"
             >
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center text-xl mb-5 text-white"
-                style={{ backgroundColor: f.accent }}
+                style={{ backgroundColor: feature.accent }}
               >
-                {f.icon}
+                {feature.icon}
               </div>
               <h3 className="font-display text-xl font-semibold text-[#241E22] mb-2">
-                {f.title}
+                {feature.title}
               </h3>
               <p className="font-body text-[#8D8790] text-sm leading-relaxed">
-                {f.copy}
+                {feature.description}
               </p>
             </div>
           ))}

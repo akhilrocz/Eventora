@@ -1,1 +1,22 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+.ticket-notch-left::before,
+.ticket-notch-right::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #f6f3ee;
+  border-radius: 9999px;
+  top: var(--seam-y, 208px);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.ticket-notch-left::before { left: -11px; }
+.ticket-notch-right::after { right: -11px; }

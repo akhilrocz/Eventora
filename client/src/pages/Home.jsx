@@ -56,31 +56,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#F6F3EE]">
-      <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
-                .font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
-                .font-body { font-family: 'Manrope', sans-serif; }
-                .font-mono { font-family: 'Space Mono', monospace; }
-
-                /* Ticket punch-hole notches at the perforation seam of each event card */
-                .ticket-notch-left::before,
-                .ticket-notch-right::after {
-                    content: '';
-                    position: absolute;
-                    width: 22px;
-                    height: 22px;
-                    background: #F6F3EE;
-                    border-radius: 9999px;
-                    top: var(--seam-y, 208px);
-                    transform: translateY(-50%);
-                    z-index: 10;
-                }
-                .ticket-notch-left::before { left: -11px; }
-                .ticket-notch-right::after { right: -11px; }
-
-                .stamp-rotate { transform: rotate(-8deg); }
-            `}</style>
-
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
         {/* Hero / Marquee */}
         <div className="relative overflow-hidden rounded-4xl bg-[#211224] text-white mb-14 shadow-[0_30px_90px_-30px_rgba(33,18,36,0.55)]">
@@ -209,7 +184,7 @@ const Home = () => {
                     )}
 
                     {/* price stamp */}
-                    <div className="stamp-rotate absolute top-4 right-4 bg-white border-2 border-dashed border-[#211224]/25 rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-md">
+                    <div className="-rotate-6 absolute top-4 right-4 bg-white border-2 border-dashed border-[#211224]/25 rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-md">
                       {event.ticketPrice === 0 ? (
                         <span className="font-mono text-[#2F8F76] text-[11px] font-bold leading-none">
                           FREE

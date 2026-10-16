@@ -59,8 +59,7 @@ const Home = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
         {/* Hero / Marquee */}
         <div className="relative overflow-hidden rounded-4xl bg-[#211224] text-white mb-14 shadow-[0_30px_90px_-30px_rgba(33,18,36,0.55)]">
-          <div className="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=3000&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div className="absolute inset-0 bg-linear-to-t from-[#211224] via-[#211224]/85 to-[#211224]/20"></div>
+          <div className="absolute inset-0 opacity-30 bg-[url('/images/hero-bg.webp')] bg-cover bg-center"></div>
 
           {/* marquee corner ticket tab */}
           <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 font-mono text-[11px] tracking-[0.2em] text-[#F0A93E] border border-[#F0A93E]/40 rounded-full px-3 py-1 uppercase">
@@ -100,19 +99,22 @@ const Home = () => {
             {
               icon: <FaRegClock />,
               title: "Fast Booking",
-              description: "Secure your tickets instantly through a streamlined checkout built for speed.",
+              description:
+                "Secure your tickets instantly through a streamlined checkout built for speed.",
               accent: "#F0A93E",
             },
             {
               icon: <FaTicketAlt />,
               title: "Seamless Access",
-              description: "Download tickets instantly or manage them anytime from your dashboard.",
+              description:
+                "Download tickets instantly or manage them anytime from your dashboard.",
               accent: "#2F8F76",
             },
             {
               icon: <FaShieldAlt />,
               title: "Secure Platform",
-              description: "Every transaction is protected with modern encryption and 2FA.",
+              description:
+                "Every transaction is protected with modern encryption and 2FA.",
               accent: "#F0A93E",
             },
           ].map((feature) => (
@@ -289,8 +291,8 @@ const Home = () => {
             world-class events in your local city. Let's make memories together.
           </p>
           <div className="font-mono text-[11px] text-[#8D8790]/70 tracking-widest uppercase">
-            &copy; {new Date().getFullYear()} Eventora Platform. All rights
-            reserved.
+            <span className="font-body text-[13px] align-middle">&copy;</span> {" "}
+            {new Date().getFullYear()} Eventora Platform. All rights reserved.
           </div>
         </footer>
       </div>
